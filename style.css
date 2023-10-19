@@ -58,7 +58,7 @@ main {
     background: linear-gradient(60deg, #8fb91d, #1a1b70b9) ;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.637);
-    border-radius: 18px;
+    border-radius: 10px;
 }
 
 #movie-details {
