@@ -1,5 +1,5 @@
 // Define the API endpoint for movie data
-const apiEndpoint = 'db.json';
+const apiEndpoint = 'http://localhost:3000/films';
 
 // Function to fetch movie data
 async function fetchMovieData() {
@@ -19,7 +19,7 @@ function displayMovieDetailsAndList(movieData) {
     const movieDetails = document.getElementById('movie-details');
 
     // Populate the film list
-    filmsList.innerHTML = '';
+    filmsList.innerHTML = ''
     movieData.forEach((movie) => {
         const filmItem = document.createElement('li');
         filmItem.classList.add('film', 'item');
@@ -28,7 +28,7 @@ function displayMovieDetailsAndList(movieData) {
         // Add a click event listener to display movie details when clicked
         filmItem.addEventListener('click', () => {
             displayMovieDetails(movie);
-        });
+        })
 
         filmsList.appendChild(filmItem);
     });
@@ -38,3 +38,40 @@ function displayMovieDetailsAndList(movieData) {
         displayMovieDetails(movieData[0]);
     }
 }
+
+// Function to display movie details
+function displayMovieDetails(movie) {
+    const movieDetails = document.getElementById('movie-details');
+    movieDetails.innerHTML = `
+        <img src="${movie.poster}" alt="${movie.title}">
+        <h2>${movie.title}</h2>
+        <p>Runtime: ${movie.runtime} mins</p>
+        <p>Showtime: ${movie.showtime}</p>
+        <p>Available Tickets: ${movie.capacity - movie.tickets_sold}</p>
+        <button id="buy-ticket">Buy Ticket</button>
+    `
+
+    // Add a click event listener for the "Buy Ticket" button
+    const buyTicketButton = document.getElementById('buy-ticket');
+    buyTicketButton.addEventListener('click', () => {
+        if (movie.capacity > movie.tickets_sold) {
+            movie.tickets_sold++;
+            displayMovieDetails(movie);
+        } else {
+            alert('Sorry, this showing is sold out.');
+        }
+    })
+}
+
+// trying to use the load event listener it did take a while but i did work
+window.addEventListener('load', async () => {
+    const movieData = await fetchMovieData();
+
+    if (movieData.length > 0) {
+        displayMovieDetailsAndList(movieData);
+    } else {
+        alert('Error loading movie data. Please try again later.');
+    }
+})
+
+document.addEventListener('DOMContentLoaded', fetchMovieData)
