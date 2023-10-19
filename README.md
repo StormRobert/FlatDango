@@ -13,8 +13,7 @@ Buy tickets if available.
 Movie data is fetched from a local JSON file (db.json).
 No data persistence; ticket counts reset on refresh.
 
-**Author**
-[Storm Robert]
+
 
 
 
