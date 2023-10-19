@@ -58,12 +58,12 @@ main {
     background: linear-gradient(60deg, #8fb91d, #1a1b70b9) ;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.637);
-    border-radius: 5px;
+    border-radius: 18px;
 }
 
 #movie-details {
     width: 68%;
-    background: linear-gradient(30deg, #1a1b70b9, #333) ;
+    background: linear-gradient(30deg, #8fb91d, #1a1b70b9, #333) ;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.658);
     border-radius: 5px;
@@ -77,14 +77,14 @@ ul#films {
 li.film.item {
     padding: 10px;
     cursor: pointer;
-    border: 1px solid #ccc;
+    border: 1px solid #243636;
     margin-bottom: 5px;
     border-radius: 5px;
     background-color: #f9f9f9;
 }
 
 li.film.item:hover {
-    background-color: #e6e6e6;
+    background-color: #9fa5a1;
 }
 
 img {
@@ -93,18 +93,18 @@ img {
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 25px;
 }
 
 button#buy-ticket {
-    background-color: #333;
-    color: white;
-    border: none;
+    border: 1px solid #000000;
+    background-color: var(--light-four);
+    color: var(--light-two);
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button#buy-ticket:hover {
-    background-color: #555;
+    background-color: #1f2046;
 }
